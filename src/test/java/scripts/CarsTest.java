@@ -39,7 +39,6 @@ public class CarsTest extends Base{
         Assert.assertEquals(driver.getCurrentUrl(), "https://www.cars.com/signin/?redirect_path=%2F");
         Assert.assertTrue(signInPage.signInHeading.isDisplayed());
         Assert.assertEquals(signInPage.newUserQuestionHeader.getText(), "New to Cars.com? Sign up. Are you a dealer?");
-        Waiters.waitForVisibilityOfElement(driver, signInPage.emailInputBox, 10);
         Assert.assertTrue(signInPage.emailInputBox.isEnabled());
         Assert.assertTrue(signInPage.passwordInputBox.isDisplayed());
         Assert.assertTrue(signInPage.passwordInputBox.isEnabled());
@@ -57,14 +56,14 @@ public class CarsTest extends Base{
     Test Case 2: Validate Cars.com Sign in page social media section
     Given user navigates to “https://www.cars.com/”
     When user clicks on top right “Sign In” link//done
-    Then user should be navigated to “Sign in” page
+    Then user should be navigated to “Sign in” page//done
     And user should be able to see headings as "Connect with social"//done
     And user should be able to “Sign in with Facebook” link with its text and be
     displayed and enabled//done
     And user should be able to “Sign in with Google” link with its text and be displayed
     and enabled//done
     And user should be able to “Sign in with Apple” link with its text and be displayed
-    and enabled
+    and enabled//done
     */
 
     @Test(priority = 2, description = "Test Case 2: Validate Cars.com Sign in page social media section")
@@ -75,15 +74,17 @@ public class CarsTest extends Base{
         Assert.assertEquals(driver.getCurrentUrl(), "https://www.cars.com/signin/?redirect_path=%2F");
         Assert.assertEquals(signInPage.socialConnectHeader.getText(), "Connect with social");
         for (int i = 0; i < 2; i++) {
-            Assert.assertTrue(signInPage.socialMedia.get(0).isDisplayed() && signInPage.socialMedia.get(0).isEnabled()
-                    && signInPage.socialMedia.get(0).getText().equals("Sign in with Facebook"));
-            Assert.assertTrue(signInPage.socialMedia.get(1).isDisplayed() && signInPage.socialMedia.get(1).isEnabled()
-                    && signInPage.socialMedia.get(1).getText().equals("Sign in with Apple"));
+            Assert.assertTrue(signInPage.socialMedia.get(0).isDisplayed());
+            Assert.assertTrue(signInPage.socialMedia.get(0).isEnabled());
+            Assert.assertTrue(signInPage.socialMedia.get(0).getText().equals("Sign in with Facebook"));
+            Assert.assertTrue(signInPage.socialMedia.get(1).isDisplayed());
+            Assert.assertTrue( signInPage.socialMedia.get(1).isEnabled());
+            Assert.assertTrue(signInPage.socialMedia.get(1).getText().equals("Sign in with Apple"));
         }
 
-
-
-
+        Assert.assertTrue(signInPage.signInWithGoogleLink.isDisplayed());
+        Assert.assertTrue(signInPage.signInWithGoogleLink.isEnabled());
+        Assert.assertEquals(signInPage.signInWithGoogleLink.getText(), "Sign in with Google");
 
     }
 

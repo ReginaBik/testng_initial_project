@@ -45,6 +45,9 @@ public class SignInPage {
     @FindBy(xpath = "//li[@class='social-link']/a")
     public List<WebElement> socialMedia;
 
+    @FindBy(css = "a[class='sds-button google-button']")
+    public WebElement signInWithGoogleLink;
+
 
 
 
