@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.List;
+
 public class SignInPage {
     public SignInPage(WebDriver driver){
         PageFactory.initElements(driver, this);
@@ -39,6 +41,10 @@ public class SignInPage {
 
     @FindBy(css = "h3[class = 'social-title sds-heading--3']")
     public WebElement socialConnectHeader;
+
+    @FindBy(xpath = "//li[@class='social-link']/a")
+    public List<WebElement> socialMedia;
+
 
 
 

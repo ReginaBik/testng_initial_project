@@ -40,13 +40,16 @@ public class CarsTest extends Base{
         Assert.assertEquals(signInPage.newUserQuestionHeader.getText(), "New to Cars.com? Sign up. Are you a dealer?");
         Waiters.waitForVisibilityOfElement(driver, signInPage.emailInputBox, 10);
         Assert.assertTrue(signInPage.emailInputBox.isEnabled());
-        Assert.assertTrue(signInPage.passwordInputBox.isDisplayed() && signInPage.passwordInputBox.isEnabled());
+        Assert.assertTrue(signInPage.passwordInputBox.isDisplayed());
+        Assert.assertTrue(signInPage.passwordInputBox.isEnabled());
         Assert.assertEquals(signInPage.passwordWarning.getText(), "Minimum of eight characters");
-        Assert.assertTrue(signInPage.passwordHelperQuestion.isDisplayed() && signInPage.passwordHelperQuestion.isEnabled());
+        Assert.assertTrue(signInPage.passwordHelperQuestion.isDisplayed());
+        Assert.assertTrue(signInPage.passwordHelperQuestion.isEnabled());
         Assert.assertTrue(signInPage.termsDisclaimer.isDisplayed());
         Assert.assertEquals(signInPage.termsDisclaimer.getText(), "By signing in to your profile, you agree to our  Privacy\n" +
                 "Statement  and  Terms of Service.");
-        Assert.assertTrue(signInPage.signInButton.isDisplayed() && signInPage.signInButton.isEnabled());
+        Assert.assertTrue(signInPage.signInButton.isDisplayed());
+        Assert.assertTrue(signInPage.signInButton.isEnabled());
 
     }
             /*
@@ -56,9 +59,9 @@ public class CarsTest extends Base{
     Then user should be navigated to “Sign in” page
     And user should be able to see headings as "Connect with social"//done
     And user should be able to “Sign in with Facebook” link with its text and be
-    displayed and enabled
+    displayed and enabled//done
     And user should be able to “Sign in with Google” link with its text and be displayed
-    and enabled
+    and enabled//done
     And user should be able to “Sign in with Apple” link with its text and be displayed
     and enabled
     */
@@ -69,6 +72,15 @@ public class CarsTest extends Base{
 
         signInPage.signInLink.click();
         Assert.assertEquals(signInPage.socialConnectHeader.getText(), "Connect with social");
+        for (int i = 0; i < 2; i++) {
+            Assert.assertTrue(signInPage.socialMedia.get(0).isDisplayed() && signInPage.socialMedia.get(0).isEnabled()
+                    && signInPage.socialMedia.get(0).getText().equals("Sign in with Facebook"));
+            Assert.assertTrue(signInPage.socialMedia.get(1).isDisplayed() && signInPage.socialMedia.get(1).isEnabled()
+                    && signInPage.socialMedia.get(1).getText().equals("Sign in with Apple"));
+        }
+
+
+
 
 
     }
