@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.asserts.SoftAssert;
 import page.HomePage;
@@ -30,6 +31,12 @@ public class Base {
         softAssert = new SoftAssert();
         homePage = new HomePage(driver);
         signInPage = new SignInPage(driver);
+    }
+
+    @AfterMethod
+    public void teardown(){
+        softAssert.assertAll();
+        Driver.quitDriver();
     }
 
 }
