@@ -39,15 +39,19 @@ public class CarsTest extends Base{
         Assert.assertEquals(driver.getCurrentUrl(), "https://www.cars.com/signin/?redirect_path=%2F");
         Assert.assertTrue(signInPage.signInHeading.isDisplayed());
         Assert.assertEquals(signInPage.newUserQuestionHeader.getText(), "New to Cars.com? Sign up. Are you a dealer?");
-        Assert.assertTrue(signInPage.emailInputBox.isEnabled());
+        softAssert.assertTrue(signInPage.emailInputBox.isEnabled());
+        softAssert.assertTrue(signInPage.emailInputLabel.isDisplayed());
+        softAssert.assertTrue(signInPage.emailInputLabel.isEnabled());
         Assert.assertTrue(signInPage.passwordInputBox.isDisplayed());
         Assert.assertTrue(signInPage.passwordInputBox.isEnabled());
+        softAssert.assertTrue(signInPage.passwordInputBox.isDisplayed());
+        softAssert.assertTrue(signInPage.passwordInputBox.isEnabled());
         Assert.assertEquals(signInPage.passwordWarning.getText(), "Minimum of eight characters");
         Assert.assertTrue(signInPage.passwordHelperQuestion.isDisplayed());
         Assert.assertTrue(signInPage.passwordHelperQuestion.isEnabled());
+        softAssert.assertEquals(signInPage.passwordHelperQuestion.getText(), "Forgot password?");
         Assert.assertTrue(signInPage.termsDisclaimer.isDisplayed());
-        Assert.assertEquals(signInPage.termsDisclaimer.getText(), "By signing in to your profile, you agree to our  Privacy\n" +
-                "Statement  and  Terms of Service.");
+        Assert.assertEquals(signInPage.termsDisclaimer.getText(), "By signing in to your profile, you agree to our  Privacy Statement  and  Terms of Service.");
         Assert.assertTrue(signInPage.signInButton.isDisplayed());
         Assert.assertTrue(signInPage.signInButton.isEnabled());
 
@@ -78,7 +82,7 @@ public class CarsTest extends Base{
             Assert.assertTrue(signInPage.socialMedia.get(0).isEnabled());
             Assert.assertTrue(signInPage.socialMedia.get(0).getText().equals("Sign in with Facebook"));
             Assert.assertTrue(signInPage.socialMedia.get(1).isDisplayed());
-            Assert.assertTrue( signInPage.socialMedia.get(1).isEnabled());
+            Assert.assertTrue(signInPage.socialMedia.get(1).isEnabled());
             Assert.assertTrue(signInPage.socialMedia.get(1).getText().equals("Sign in with Apple"));
         }
 

@@ -24,11 +24,17 @@ public class SignInPage {
     @FindBy(css = "h1[class = 'sds-heading--1 sds-page-section__title' ]")
     public WebElement signInHeading;
 
-    @FindBy(id = " email")
+    @FindBy(id = "email")
     public WebElement emailInputBox;
+
+    @FindBy(css = "label[for='email']")
+    public WebElement emailInputLabel;
 
     @FindBy(id = "password")
     public WebElement passwordInputBox;
+
+    @FindBy(css = "label[for='password']")
+    public WebElement passwordInputLabel;
 
     @FindBy(xpath = "//a[@href='/forgot_password/?email='] ")
     public WebElement passwordHelperQuestion;
@@ -47,9 +53,6 @@ public class SignInPage {
 
     @FindBy(css = "a[class='sds-button google-button']")
     public WebElement signInWithGoogleLink;
-
-
-
 
 
 }
