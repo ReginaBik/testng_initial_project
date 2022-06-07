@@ -36,6 +36,7 @@ public class CarsTest extends Base{
 
         signInPage.signInLink.click();
         Waiters.waitForVisibilityOfElement(driver, signInPage.signInLink, 5);
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.cars.com/signin/?redirect_path=%2F");
         Assert.assertTrue(signInPage.signInHeading.isDisplayed());
         Assert.assertEquals(signInPage.newUserQuestionHeader.getText(), "New to Cars.com? Sign up. Are you a dealer?");
         Waiters.waitForVisibilityOfElement(driver, signInPage.emailInputBox, 10);
@@ -71,6 +72,7 @@ public class CarsTest extends Base{
         driver.get("https://www.cars.com/");
 
         signInPage.signInLink.click();
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.cars.com/signin/?redirect_path=%2F");
         Assert.assertEquals(signInPage.socialConnectHeader.getText(), "Connect with social");
         for (int i = 0; i < 2; i++) {
             Assert.assertTrue(signInPage.socialMedia.get(0).isDisplayed() && signInPage.socialMedia.get(0).isEnabled()
