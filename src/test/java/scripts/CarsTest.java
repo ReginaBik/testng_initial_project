@@ -66,7 +66,7 @@ public class CarsTest extends Base{
     and enabled//done
     */
 
-    @Test(priority = 2, description = "Test Case 2: Validate Cars.com Sign in page social media section")
+    @Test(priority = 2, description = "TC2: Validate Cars.com Sign in page social media section")
     public void validateSocialMediaSection(){
         driver.get("https://www.cars.com/");
 
@@ -89,19 +89,33 @@ public class CarsTest extends Base{
     }
 
 
-        /*
-Test Case 3: Validate user cannot sign in to Cars.com with invalid
-credentials
-Given user navigates to “https://www.cars.com/”
-When user clicks on top right “Sign In” link
-Then user should be navigated to “Sign in” page
-When user enters johndoe@gmail.com to the Email input box
-And user enters abcd1234 to the Password input box
-And user clicks on the “Sign in” button
-Then user should not be logged in and displayed an error message on the top of the
-form as below
-“We were unable to sign you in.
-Your email or password was not recognized. Try again soon.”*/
+            /*
+    Test Case 3: Validate user cannot sign in to Cars.com with invalid
+    credentials
+    Given user navigates to “https://www.cars.com/”//DONE
+    When user clicks on top right “Sign In” link//DONE
+    Then user should be navigated to “Sign in” page//DONE
+    When user enters johndoe@gmail.com to the Email input box//DONE
+    And user enters abcd1234 to the Password input box//DONE
+    And user clicks on the “Sign in” button
+    Then user should not be logged in and displayed an error message on the top of the
+    form as below
+    “We were unable to sign you in.
+    Your email or password was not recognized. Try again soon.”*/
+
+    @Test(priority = 3, description = "TC3: Validate user can not sign in with invalid credentials")
+    public void ValidateNonAccessWithInvalidCredentials(){
+        driver.get("https://www.cars.com/");
+        signInPage.signInLink.click();
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.cars.com/signin/?redirect_path=%2F");
+        signInPage.emailInputBox.sendKeys("johndoe@gmail.com");
+        signInPage.passwordInputBox.sendKeys("abcd1234");
+        signInPage.signInButton.click();
+
+        //error messages?
+
+}
+
 
 
 
