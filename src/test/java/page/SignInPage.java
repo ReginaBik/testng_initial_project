@@ -37,6 +37,9 @@ public class SignInPage {
     @FindBy(xpath = "//button[@class = 'sds-button']")
     public WebElement signInButton;
 
+    @FindBy(css = "h3[class = 'social-title sds-heading--3']")
+    public WebElement socialConnectHeader;
+
 
 
 
